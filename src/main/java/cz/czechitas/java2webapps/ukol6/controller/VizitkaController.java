@@ -59,12 +59,12 @@ public class VizitkaController {
                 .addObject("vizitka", new Vizitka());
     }
 
-    /*@PostMapping("/nova")
+    @PostMapping("/nova")
     public String pridat(@ModelAttribute("vizitka") @Valid Vizitka vizitka, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "formular";
         }
         repository.save(vizitka);
         return "redirect:/";
-    }*/
+    }
 }
