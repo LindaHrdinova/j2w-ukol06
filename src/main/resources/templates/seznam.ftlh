@@ -1,27 +1,29 @@
 [#ftl]
 [@c.page]
     <div class="seznam">
-        <a href="/detail">
-            [#list vizitky]
-                [#items as vizitka]
-                <div class="vizitka">
-                    <div class="jmeno">${vizitka.celeJmeno}</div>
-                    <div class="firma">${vizitka.firma}</div>
-                    <div class="udaje">
-                        <div class="adresa">
-                            <div>${vizitka.ulice}</div>
-                            <div><span>${vizitka.psc}</span> <span>${vizitka.obec}</span></div>
-                        </div>
-                        <div class="kontakty">
-                            [#if vizitka.email??]
-                                <div><i class="las la-at"></i> <span>${vizitka.email}</span></div>
-                            [/#if]
-                            [#if vizitka.telefon??]<div><i class="las la-phone-alt"></i> <span>${vizitka.telefon}</span></div>[/#if]
-                            [#if vizitka.web??] <div><i class="las la-globe"></i> <span>${vizitka.web}</span></div>[/#if]
-                        </div>
+        [#list vizitky]
+        [#items as vizitka]
+        <a href="/${vizitka.id}">
+            <div class="vizitka">
+                <div class="jmeno">${vizitka.celeJmeno}</div>
+                <div class="firma">${vizitka.firma}</div>
+                <div class="udaje">
+                    <div class="adresa">
+                        <div>${vizitka.ulice}</div>
+                        <div><span>${vizitka.psc}</span> <span>${vizitka.obec}</span></div>
+                    </div>
+                    <div class="kontakty">
+                        [#if vizitka.email??]
+                            <div><i class="las la-at"></i> <span>${vizitka.email}</span></div>
+                        [/#if]
+                        [#if vizitka.telefon??]
+                            <div><i class="las la-phone-alt"></i> <span>${vizitka.telefon}</span></div>[/#if]
+                        [#if vizitka.web??]
+                            <div><i class="las la-globe"></i> <span>${vizitka.web}</span></div>[/#if]
                     </div>
                 </div>
-                [/#items]
+            </div>
+            [/#items]
             [#else]
                 <p class="fst-italic">Seznam osob je prázdný.</p>
             [/#list]
