@@ -52,4 +52,19 @@ public class VizitkaController {
         repository.save(vizitka);
         return "redirect:/";
     }
+
+    @GetMapping("/nova")
+    public ModelAndView nova() {
+        return new ModelAndView("formular")
+                .addObject("vizitka", new Vizitka());
+    }
+
+    /*@PostMapping("/nova")
+    public String pridat(@ModelAttribute("vizitka") @Valid Vizitka vizitka, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "formular";
+        }
+        repository.save(vizitka);
+        return "redirect:/";
+    }*/
 }
