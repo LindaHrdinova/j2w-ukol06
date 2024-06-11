@@ -12,31 +12,37 @@ import org.hibernate.validator.constraints.Length;
 public class Vizitka {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
+    @Length(max = 100)
     @NotBlank
     private String celeJmeno; //nezapomeň, že v entitě bude property pojmenovaná celeJmeno
 
+    @Length(max = 100)
     @NotBlank
     private String firma;
+    @Length(max = 100)
     @NotBlank
     private String ulice;
+    @Length(max = 100)
     @NotBlank
     private String obec;
     @Length(max = 5)
     @NotBlank
     private String psc;
 
+    @Length(max = 100)
     private String email;
     @Length(min = 9, max = 13)
     @Pattern(regexp = "\\+?\\d+")
     private String telefon;
+    @Length(max = 100)
     private String web;
 
     public Vizitka() {
     }
 
-    public Vizitka(Long id, String celeJmeno, String firma, String ulice, String obec, String psc, String email, String telefon, String web) {
+    public Vizitka(int id, String celeJmeno, String firma, String ulice, String obec, String psc, String email, String telefon, String web) {
         this.id = id;
         this.celeJmeno = celeJmeno;
         this.firma = firma;
@@ -48,11 +54,11 @@ public class Vizitka {
         this.web = web;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -119,4 +125,5 @@ public class Vizitka {
     public void setWeb(String web) {
         this.web = web;
     }
+
 }
