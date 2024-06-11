@@ -25,7 +25,8 @@ public class VizitkaController {
 
     @GetMapping("/")
     public ModelAndView seznam() {
-        return new ModelAndView("seznam");
+        return new ModelAndView("seznam")
+                .addObject("vizitky", repository.findAll());
     }
 
 }
